@@ -258,6 +258,9 @@ class Scientist:
                      overwrite: bool,
                      row_index_offset: int = 0):
         '''
+            Now: calls Semantic Scholar instead of OpenAI
+
+            Original doc string:
             Analyze all the `rows` in a pandas dataframe:
             for every value in the input_field column,
             send to the model the `prompt`, together with names and values of `input_fields`;
@@ -323,13 +326,31 @@ class Scientist:
 
             self.logger.info(f"Processing row {i + row_index_offset}")
             old_input_tokens, old_output_tokens = self._input_tokens, self._output_tokens
-            full_prompt = self._create_prompt(prompt, input_fields, output_fields, row)
-            response = self.get_response(full_prompt, output_fields)
+
+            # call to OpenAI which is replaced
+            #full_prompt = self._create_prompt(prompt, input_fields, output_fields, row)
+            #response = self.get_response(full_prompt, output_fields)
+
+            # call Semantic Scholar API instead
+            # 1. find title column
+            title = '"'+row['paper_title']+'"'
+            # 2. define the API endpoint URL for paper look up from title
+            url = "https://api.semanticscholar.org/graph/v1/paper/search/match"
+            # 3. Define the query parameters
+            query_params = {
+                "query": title,
+                "fields": ",".join(output_fields)
+            }
+            # 4. TODO allow users to add an API key, if more are given output
+            headers = {"x-api-key": ''}
+            # 5. Send the API request
+            response = requests.get(url, params=query_params, headers=headers).json()
+
             if response is None:
-                self.logger.error(f"The model failed to generate a valid response for row: {i + row_index_offset}. Try again later?")
+                self.logger.error(f"The Semantic Scholar API failed to generate a valid response for row: {i + row_index_offset}. Try again later?")
             else:
                 for field in output_fields:
-                    data.at[i, field] = response[field]
+                    data.at[i, field] = response['data'][field]
             write_output_row(data, i)
             self._report_cost(self._input_tokens - old_input_tokens, self._output_tokens - old_output_tokens)
 

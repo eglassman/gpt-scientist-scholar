@@ -1,24 +1,24 @@
-# gpt_scientist
+# gpt_scientist_scholar
 
-[![PyPI version](https://badge.fury.io/py/gpt-scientist.svg)](https://badge.fury.io/py/gpt-scientist)
+**Development**
+
+This repo is currently under construction.
+
+[![PyPI version](TBD)](TBD)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-🔵 [Читать на русском (Read in Russian)](README_ru.md)
+`gpt_scientist_scholar` is a lightweight Python library for augmenting tabular academic paper data stored in Google Sheets (or CSV files) with data from the Semantic Scholar API, designed to populate the same spreadsheet/CSV that can then immediately be processed with [`gpt_scientist`](https://github.com/nadia-polikarpova/gpt-scientist/).
 
-`gpt_scientist` is a lightweight Python library for processing tabular data stored in Google Sheets (or CSV files) using [OpenAI](https://openai.com/) models (like GPT-4o, GPT-4o-mini, etc).
-
-The library is designed primarily for **social science researchers** and other users without extensive programming experience who wants to run AI-based textual analysis over tabular data with just a few lines of Python code.
-
-The library is best used in [Google Colab](https://colab.research.google.com/) for processing Google Sheets.
-However, it can also be used locally with CSV files.
+The library can be used in [Google Colab](https://colab.research.google.com/) for processing Google Sheets, or locally with CSV files.
 
 **Feedback and Collaboration**
 
-If you use `gpt_scientist` for your project, we would love to hear about it!
-Your feedback helps us improve the library and better support real-world research and activist work.
+Given that this repo is a fork of Nadia Polikarpova's [`gpt_scientist`](https://github.com/nadia-polikarpova/gpt-scientist/) but has a complementary rather than modified version of the original purpose, it appears that any Github issues must be logged there ([issues](https://github.com/nadia-polikarpova/gpt-scientist/issues)). You can also reach out to me directly at [email](mailto:eglassman@g.harvard.edu).
 
-Feel free to open an [issue](https://github.com/nadia-polikarpova/gpt-scientist/issues) on GitHub, or reach out by [email](mailto:npolikarpova@ucsd.edu).
+If you use `gpt_scientist_scholar` for your project, I would love to hear about it, especially if it's used in conjunction with `gpt_scientist`.
+Your feedback can help us understand the utility of this spreadsheet-based approach and improve this or both libraries.
 
+THE DIRECTIONS BELOW HAVE NOT YET BEEN UPDATED:
 
 ## Installation
 

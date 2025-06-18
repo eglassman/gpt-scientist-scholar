@@ -11,6 +11,10 @@ This repo is currently under construction.
 
 The library can be used in [Google Colab](https://colab.research.google.com/) for processing Google Sheets, or locally with CSV files.
 
+**Key differences**
+
+Unlike `gpt_scientist`, this library makes calls to the Semantic Scholar API, so the output fields are limited to those supported by the Semantic Scholar API. For now, only the paper title search API is used, so the paper title (as `paper_title`) must be included in the input fields; the list of output fields supported are found [here](https://api.semanticscholar.org/api-docs/graph#tag/Paper-Data/operation/get_graph_paper_title_search).
+
 **Feedback and Collaboration**
 
 Given that this repo is a fork of Nadia Polikarpova's [`gpt_scientist`](https://github.com/nadia-polikarpova/gpt-scientist/) but has a complementary rather than modified version of the original purpose, it appears that any Github issues must be logged there ([issues](https://github.com/nadia-polikarpova/gpt-scientist/issues)). You can also reach out to me directly at [email](mailto:eglassman@g.harvard.edu).

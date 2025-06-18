@@ -109,3 +109,6 @@ ENV/
 .idea/
 
 deploy.fish
+
+# Elena's additions
+ **/.DS_Store
